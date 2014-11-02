@@ -611,10 +611,12 @@ public class MediaAdapter
 		if (mExpandable)
 			view = (View)view.getParent();
 		Intent intent = createData(view);
-		if (id == R.id.arrow) {
-			mActivity.onItemExpanded(intent);
-		} else {
+		// Hack to swap the behavior of the arrow and the item when clicked
+		// There are probably better ways to do this! -Daniele
+		if (id == R.id.arrow || !mExpandable) {
 			mActivity.onItemClicked(intent);
+		} else {
+			mActivity.onItemExpanded(intent);
 		}
 	}
 
