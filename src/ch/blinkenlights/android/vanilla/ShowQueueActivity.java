@@ -57,12 +57,14 @@ public class ShowQueueActivity extends PlaybackActivity
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				mService.jumpToQueuePosition(position);
-				finish();
+				//finish();
 			}});
 		mListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				mService.jumpToQueuePosition(position);
+				//mService.jumpToQueuePosition(position);
+				// Do nothing: if you put your finger on something by mistake, just hold long enough
+				// and it will just "cancel" the click, effectively. -Daniele
 				return true;
 			}});
 
