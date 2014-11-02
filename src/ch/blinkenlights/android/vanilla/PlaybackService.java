@@ -23,6 +23,7 @@
 
 package ch.blinkenlights.android.vanilla;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -668,6 +669,7 @@ public final class PlaybackService extends Service
 	 * Destroys any currently prepared MediaPlayer and
 	 * re-creates a newone if needed.
 	 */
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	private void triggerGaplessUpdate() {
 
 		if(mMediaPlayerInitialized != true)
@@ -1260,7 +1262,7 @@ public final class PlaybackService extends Service
 	public boolean onError(MediaPlayer player, int what, int extra)
 	{
 		Log.e("VanillaMusic", "MediaPlayer error: " + what + ' ' + extra);
-		return true;
+		return false;
 	}
 
 	/**
